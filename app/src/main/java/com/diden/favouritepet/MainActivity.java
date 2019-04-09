@@ -11,6 +11,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.MotionEvent;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -24,6 +25,7 @@ Toolbar miActionBar;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         Toolbar miActionBar = (Toolbar) findViewById(R.id.miActionBar);
         setSupportActionBar(miActionBar);
@@ -44,6 +46,28 @@ Toolbar miActionBar;
 
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.starMenu:
+                Intent intent = new Intent(MainActivity.this, ContactoFavorito.class);
+                intent.putExtra("foto", "Foto Perrito");
+                intent.putExtra("perrito", "Nombre del Perrito");
+                intent.putExtra("telefono", "Telefono del Perrito");
+                intent.putExtra("email", "Email del perrito");
+                startActivity(intent);
+                break;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
     public void inicializarListaContactos(){
         contactos = new ArrayList<Contacto>();
 
@@ -60,6 +84,7 @@ Toolbar miActionBar;
         listaContactos.setAdapter(adaptador);
     }
 
+/*<<<<<<< HEAD
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu, menu);
@@ -76,4 +101,8 @@ Toolbar miActionBar;
         }
         return super.onOptionsItemSelected(item);
     }
+=======
+
+
+>>>>>>> 5f99d38306acf542cbea685dfa9fb95b469ac222*/
 }

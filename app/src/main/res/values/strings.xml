@@ -5,4 +5,6 @@
     <string name="email_de_contacto_detalle">Email de Contacto: &#160; </string>
     <string name="detalle_de_contacto_title">Detalle de Contacto</string>
     <string name="btnRegresar">Regresar</string>
+    <string name="menu_favoritos">Favoritos</string>
+    <string name="mascota_favorita">Mascota Favorita</string>
 </resources>
