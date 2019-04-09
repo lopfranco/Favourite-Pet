@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Favourite Pet</string>
+    <string name="nombre_contacto">Nombre Contacto: &#160;</string>
+    <string name="telefono_contacto_detalle">Telefono: &#160;</string>
+    <string name="email_de_contacto_detalle">Email de Contacto: &#160; </string>
+    <string name="detalle_de_contacto_title">Detalle de Contacto</string>
+    <string name="btnRegresar">Regresar</string>
+</resources>
