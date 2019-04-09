@@ -1,13 +1,17 @@
 package com.diden.favouritepet;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.MotionEvent;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -21,6 +25,7 @@ Toolbar miActionBar;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         Toolbar miActionBar = (Toolbar) findViewById(R.id.miActionBar);
         setSupportActionBar(miActionBar);
@@ -41,6 +46,28 @@ Toolbar miActionBar;
 
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.starMenu:
+                Intent intent = new Intent(MainActivity.this, ContactoFavorito.class);
+                intent.putExtra("foto", "Foto Perrito");
+                intent.putExtra("perrito", "Nombre del Perrito");
+                intent.putExtra("telefono", "Telefono del Perrito");
+                intent.putExtra("email", "Email del perrito");
+                startActivity(intent);
+                break;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
     public void inicializarListaContactos(){
         contactos = new ArrayList<Contacto>();
 
@@ -56,5 +83,7 @@ Toolbar miActionBar;
         ContactoAdaptador adaptador = new ContactoAdaptador(contactos, this);
         listaContactos.setAdapter(adaptador);
     }
+
+
 
 }
